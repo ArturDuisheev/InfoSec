@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  back-end:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./core/media:/home/app/web/core/media
+    command: >
+      gunicorn core.wsgi:application --bind 0.0.0.0:8000 --access-logfile -
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./src/.env
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.proxy
+    volumes:
+      - ./src/static:/home/app/web/static
+    ports:
+      - "80:80"
+    depends_on:
+      - back-end
+
+
+volumes:
+  static_volume:
+  media_volume:
+  postgres_data:

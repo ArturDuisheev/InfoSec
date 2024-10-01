@@ -1,0 +1,58 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.pyo
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+# Если используешь collectstatic, можешь убрать static/ или оставить только staticfiles/
+
+# Pytest and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*,cover
+.hypothesis/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# pipenv and poetry
+Pipfile.lock
+poetry.lock
+
+# Environment variables
+.env
+.env.*
+
+# Docker
+docker-compose.override.yml
+__docker-compose.override.yml
+Dockerfile
